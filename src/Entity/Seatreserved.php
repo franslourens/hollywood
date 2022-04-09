@@ -30,7 +30,7 @@ class Seatreserved
     private $reservation_id;
 
     /**
-     * @ORM\ManyToOne(targetEntity=screening::class, inversedBy="seatreserveds")
+     * @ORM\ManyToOne(targetEntity=Screening::class, inversedBy="seatreserveds")
      * @ORM\JoinColumn(nullable=false)
      */
     private $screening_id;

@@ -20,7 +20,7 @@ class Reservation
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity=screening::class, inversedBy="reservations")
+     * @ORM\ManyToOne(targetEntity=Screening::class, inversedBy="reservations")
      * @ORM\JoinColumn(nullable=false)
      */
     private $screening_id;
@@ -32,7 +32,7 @@ class Reservation
     private $user_reserved_id;
 
     /**
-     * @ORM\ManyToOne(targetEntity=reservationtype::class, inversedBy="reservations")
+     * @ORM\ManyToOne(targetEntity=ReservationType::class, inversedBy="reservations")
      * @ORM\JoinColumn(nullable=false)
      */
     private $reservation_type_id;
@@ -101,12 +101,12 @@ class Reservation
         return $this;
     }
 
-    public function getReservationTypeId(): ?reservationtype
+    public function getReservationTypeId(): ?Reservationtype
     {
         return $this->reservation_type_id;
     }
 
-    public function setReservationTypeId(?reservationtype $reservation_type_id): self
+    public function setReservationTypeId(?Reservationtype $reservation_type_id): self
     {
         $this->reservation_type_id = $reservation_type_id;
 
