@@ -9,15 +9,17 @@
         <p class="text-right"><a href="#">See all</a></p>
       </div>
 
-      <div class="movie last">
-        <div class="movie-image"> <span class="play"><span class="name">X-MAN</span></span> <a href="#"><img src="css/images/movie1.jpg" alt="" /></a> </div>
-        <div class="rating">
-          <p>RATING</p>
-          <div class="stars">
-            <div class="stars-in"> </div>
-          </div>
-          <span class="comments">12</span> </div>
-      </div>
+      {% for movie in movies %}
+        <div class="movie  {{ (loop.last) ? 'last' : '' }}">
+          <div class="movie-image"> <span class="play"><span class="name">{{ movie.title }}</span></span> <a href="#"><img src="css/images/{{movie.title}}.jpg" alt="" /></a> </div>
+          <div class="rating">
+            <p>RATING</p>
+            <div class="stars">
+              <div class="stars-in"> </div>
+            </div>
+            <span class="comments">12</span> </div>
+        </div>
+      {% endfor %}
 
       <div class="cl">&nbsp;</div>
     </div>
@@ -27,15 +29,17 @@
         <p class="text-right"><a href="#">See all</a></p>
       </div>
 
-      <div class="movie last">
-        <div class="movie-image"> <span class="play"><span class="name">TRANSFORMERS</span></span> <a href="#"><img src="css/images/movie7.jpg" alt="" /></a> </div>
-        <div class="rating">
-          <p>RATING</p>
-          <div class="stars">
-            <div class="stars-in"> </div>
-          </div>
-          <span class="comments">12</span> </div>
-      </div>
+      {% for movie in movies %}
+        <div class="movie  {{ (loop.last) ? 'last' : '' }}">
+          <div class="movie-image"> <span class="play"><span class="name">{{ movie.title }}</span></span> <a href="#"><img src="css/images/{{movie.title}}.jpg" alt="" /></a> </div>
+          <div class="rating">
+            <p>RATING</p>
+            <div class="stars">
+              <div class="stars-in"> </div>
+            </div>
+            <span class="comments">12</span> </div>
+        </div>
+      {% endfor %}
 
       <div class="cl">&nbsp;</div>
     </div>
@@ -44,15 +48,19 @@
         <h2>MOST COMMENTED</h2>
         <p class="text-right"><a href="#">See all</a></p>
       </div>
-      <div class="movie">
-        <div class="movie-image"> <span class="play"><span class="name">HOUSE</span></span> <a href="#"><img src="css/images/movie13.jpg" alt="" /></a> </div>
-        <div class="rating">
-          <p>RATING</p>
-          <div class="stars">
-            <div class="stars-in"> </div>
-          </div>
-          <span class="comments">12</span> </div>
-      </div>
+
+      {% for movie in movies %}
+        <div class="movie  {{ (loop.last) ? 'last' : '' }}">
+          <div class="movie-image"> <span class="play"><span class="name">{{ movie.title }}</span></span> <a href="#"><img src="css/images/{{movie.title}}.jpg" alt="" /></a> </div>
+          <div class="rating">
+            <p>RATING</p>
+            <div class="stars">
+              <div class="stars-in"> </div>
+            </div>
+            <span class="comments">12</span> </div>
+        </div>
+      {% endfor %}
+
       <div class="cl">&nbsp;</div>
     </div>
   </div>
