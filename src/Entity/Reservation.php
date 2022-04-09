@@ -101,12 +101,12 @@ class Reservation
         return $this;
     }
 
-    public function getReservationTypeId(): ?Reservationtype
+    public function getReservationTypeId(): ?ReservationType
     {
         return $this->reservation_type_id;
     }
 
-    public function setReservationTypeId(?Reservationtype $reservation_type_id): self
+    public function setReservationTypeId(?ReservationType $reservation_type_id): self
     {
         $this->reservation_type_id = $reservation_type_id;
 
