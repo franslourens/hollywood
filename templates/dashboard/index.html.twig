@@ -3,65 +3,73 @@
 {% block title %} Dashboard {% endblock %}
 
 {% block body %}
-    <div class="box">
+    <div class="box row">
       <div class="head">
         <h2>LATEST TRAILERS</h2>
         <p class="text-right"><a href="#">See all</a></p>
       </div>
 
       {% for movie in movies %}
-        <div class="movie  {{ (loop.last) ? 'last' : '' }}">
-          <div class="movie-image"> <span class="play"><span class="name">{{ movie.title }}</span></span> <a href="#"><img src="css/images/{{movie.title}}.jpg" alt="" /></a> </div>
-          <div class="rating">
-            <p>RATING</p>
-            <div class="stars">
-              <div class="stars-in"> </div>
-            </div>
-            <span class="comments">12</span> </div>
-            <h1><a href="/movies/{{movie.id}}" class="btn btn-md btn-primary btn-block">Book</a></h1>
+
+        <div class="col-lg-4 col-md-12 mb-4">
+          <div class="movie  {{ (loop.last) ? 'last' : '' }}">
+            <div class="movie-image"> <span class="play"><span class="name">{{ movie.title }}</span></span> <a href="#"><img src="css/images/{{movie.title}}.jpg" alt="" /></a> </div>
+            <div class="rating">
+              <p>RATING</p>
+              <div class="stars">
+                <div class="stars-in"> </div>
+              </div>
+              <span class="comments">12</span> </div>
+              <h1><a href="/movies/{{movie.id}}" class="btn btn-md btn-primary btn-block">Book</a></h1>
+          </div>
         </div>
+
       {% endfor %}
 
       <div class="cl">&nbsp;</div>
     </div>
-    <div class="box">
+    <div class="box row">
       <div class="head">
         <h2>TOP RATED</h2>
         <p class="text-right"><a href="#">See all</a></p>
       </div>
 
       {% for movie in movies %}
-        <div class="movie  {{ (loop.last) ? 'last' : '' }}">
-          <div class="movie-image"> <span class="play"><span class="name">{{ movie.title }}</span></span> <a href="/movie/{{movie.id}}"><img src="css/images/{{movie.title}}.jpg" alt="" /></a> </div>
-          <div class="rating">
-            <p>RATING</p>
-            <div class="stars">
-              <div class="stars-in"> </div>
+        <div class="col-lg-4 col-md-12 mb-4">
+          <div class="movie  {{ (loop.last) ? 'last' : '' }}">
+            <div class="movie-image"> <span class="play"><span class="name">{{ movie.title }}</span></span> <a href="/movie/{{movie.id}}"><img src="css/images/{{movie.title}}.jpg" alt="" /></a> </div>
+            <div class="rating">
+              <p>RATING</p>
+              <div class="stars">
+                <div class="stars-in"> </div>
+              </div>
+              <span class="comments">12</span>
             </div>
-            <span class="comments">12</span>
+            <h1><a href="/movies/{{movie.id}}" class="btn btn-md btn-primary btn-block">Book</a></h1>
           </div>
-          <h1><a href="/movies/{{movie.id}}" class="btn btn-md btn-primary btn-block">Book</a></h1>
         </div>
       {% endfor %}
 
       <div class="cl">&nbsp;</div>
     </div>
-    <div class="box">
+    <div class="box row">
       <div class="head">
         <h2>MOST COMMENTED</h2>
         <p class="text-right"><a href="#">See all</a></p>
       </div>
 
       {% for movie in movies %}
-        <div class="movie  {{ (loop.last) ? 'last' : '' }}">
-          <div class="movie-image"> <span class="play"><span class="name">{{ movie.title }}</span></span> <a href="#"><img src="css/images/{{movie.title}}.jpg" alt="" /></a> </div>
-          <div class="rating">
-            <p>RATING</p>
-            <div class="stars">
-              <div class="stars-in"> </div>
-            </div>
-            <span class="comments">12</span> </div>
-            <h1><a href="/movies/{{movie.id}}" class="btn btn-md btn-primary btn-block">Book</a></h1>
+        <div class="col-lg-4 col-md-12 mb-4">
+          <div class="movie  {{ (loop.last) ? 'last' : '' }}">
+            <div class="movie-image"> <span class="play"><span class="name">{{ movie.title }}</span></span> <a href="#"><img src="css/images/{{movie.title}}.jpg" alt="" /></a> </div>
+            <div class="rating">
+              <p>RATING</p>
+              <div class="stars">
+                <div class="stars-in"> </div>
+              </div>
+              <span class="comments">12</span> </div>
+              <h1><a href="/movies/{{movie.id}}" class="btn btn-md btn-primary btn-block">Book</a></h1>
+          </div>
         </div>
       {% endfor %}
 
