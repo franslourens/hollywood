@@ -20,7 +20,7 @@ class AccountController extends AbstractController
 
         $repository = $doctrine->getRepository(Reservation::class);
         $user = $this->getUser();
-        $reservations = $repository->findBy(['user_reserved_id' => $user], ['id' => 'DESC']);
+        $reservations = $repository->findBy(['user_reserved_id' => $user, "active" => 1, "reserved" => 1], ['id' => 'DESC']);
 
         $data = Reservation::collection($reservations);
 

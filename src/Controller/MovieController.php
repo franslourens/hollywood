@@ -55,6 +55,7 @@ class MovieController extends AbstractController
        $reservation->setScreeningId($screening);
        $reservation->setContact($this->getUser()->getEmail());
        $reservation->setReserved(true);
+       $reservation->setActive(true);
        $reservation->setUserPaidId($this->getUser()->getId());
 
        $reservation_type = $doctrine->getRepository(ReservationType::class)->find(2);
