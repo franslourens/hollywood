@@ -67,9 +67,15 @@ class Reservation
      */
     private $seatreserveds;
 
+    /**
+     * @ORM\Column(type="string", length=255, unique=true)
+     */
+    private $code;
+
     public function __construct()
     {
         $this->seatreserveds = new ArrayCollection();
+        $this->code = substr(str_shuffle(str_repeat('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ',10-2)),0,10-2);
     }
 
     public function getId(): ?int
@@ -191,6 +197,7 @@ class Reservation
         return $this;
     }
 
+
     public function removeSeatreserved(Seatreserved $seatreserved): self
     {
         if ($this->seatreserveds->removeElement($seatreserved)) {
@@ -201,5 +208,58 @@ class Reservation
         }
 
         return $this;
+    }
+
+    public function getCode(): ?string
+    {
+        return $this->code;
+    }
+
+    public function setCode(string $code): self
+    {
+        $this->code = $code;
+
+        return $this;
+    }
+
+    public static function collection($reservations) {
+
+      $data = [];
+
+      foreach($reservations as $key => $reservation) {
+
+        $screening = $reservation->getScreeningId();
+        $data[$key]["movie"] = $screening->getMovieId()->__toString();
+        $data[$key]["cinema"] = $screening->__toString();
+        $data[$key]["reference"] = $reservation->getCode();
+        $data[$key]["seats"] = [];
+
+        foreach ($reservation->getSeatreserveds() as $seatReserved) {
+              $seat = $seatReserved->getSeatId();
+              $data[$key]["seats"]["Row"] = $seat->getRow();
+              $data[$key]["seats"]["Number"] = $seat->getNumber();
+        }
+
+      }
+
+      return $data;
+    }
+
+    public static function can_book($reservations, $seats) {
+      $taken_seats = [];
+
+      foreach($reservations as $reserved) {
+        $taken_seats[] = $reserved->getSeatId()->getId();
+      }
+
+      $screening_seats = [];
+
+      foreach($seats as $s) {
+         $screening_seats[] = $s->getId();
+      }
+
+      $not_taken = array_diff($screening_seats, $taken_seats);
+
+      return $not_taken;
     }
 }

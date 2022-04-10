@@ -20,7 +20,7 @@ class Screening
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity=movie::class)
+     * @ORM\ManyToOne(targetEntity=Movie::class)
      * @ORM\JoinColumn(nullable=false)
      */
     private $movie_id;
@@ -31,7 +31,7 @@ class Screening
     private $start;
 
     /**
-     * @ORM\ManyToOne(targetEntity=auditorium::class)
+     * @ORM\ManyToOne(targetEntity=Auditorium::class)
      * @ORM\JoinColumn(nullable=false)
      */
     private $auditorium_id;
@@ -81,12 +81,12 @@ class Screening
         return $this;
     }
 
-    public function getAuditoriumId(): ?auditorium
+    public function getAuditoriumId(): ?Auditorium
     {
         return $this->auditorium_id;
     }
 
-    public function setAuditoriumId(?auditorium $auditorium_id): self
+    public function setAuditoriumId(?Auditorium $auditorium_id): self
     {
         $this->auditorium_id = $auditorium_id;
 
@@ -151,5 +151,9 @@ class Screening
         }
 
         return $this;
+    }
+
+    public function __toString() {
+        return ucwords($this->auditorium_id) . " @ " . $this->getStart()->format("Y-m-d H:i:s");
     }
 }

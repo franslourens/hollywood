@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AccountController!{% endblock %}
+
+{% block body %}
+
+{% for reservation in reservations %}
+  <div class="m-4">
+      <dl class="row">
+          <dt class="col-sm-3" style="color: #d91d2a;">Movie</dt>
+          <dd class="col-sm-9" style="color: #ffffff;">{{reservation.movie}}</dd>
+          <dt class="col-sm-3" style="color: #d91d2a;">Cinema</dt>
+          <dd class="col-sm-9" style="color: #ffffff;">{{reservation.cinema}}</dd>
+          <dt class="col-sm-3" style="color: #d91d2a;">Reference</dt>
+          <dd class="col-sm-9" style="color: #ffffff;">{{reservation.reference}}</dd>
+          {% for row, number in reservation.seats %}
+            <dt class="col-sm-3" style="color: #d91d2a;">{{row}}</dt>
+            <dd class="col-sm-9" style="color: #ffffff;">{{number}}</dd>
+          {% endfor %}
+      </dl>
+  </div>
+{% endfor %}
+{% endblock %}

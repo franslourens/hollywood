@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+{% form_theme form 'bootstrap_5_layout.html.twig' %}
+
+{% block title %} Movie {% endblock %}
+
+{% block body %}
+
+  <h2>{{movie.title}}</h2>
+
+  {{ form_start(form, {method: 'POST', action: path('create_reservation')}) }}
+      {{ form_widget(form) }}
+
+     <div class="form-group">
+        <button class="btn btn-primary" type="submit">Book</button>
+      </div>
+
+  {{ form_end(form) }}
+{% endblock %}

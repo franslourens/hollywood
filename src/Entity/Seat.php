@@ -30,7 +30,7 @@ class Seat
     private $number;
 
     /**
-     * @ORM\ManyToOne(targetEntity=auditorium::class, inversedBy="seats")
+     * @ORM\ManyToOne(targetEntity=Auditorium::class, inversedBy="seats")
      * @ORM\JoinColumn(nullable=false)
      */
     private $auditorium;

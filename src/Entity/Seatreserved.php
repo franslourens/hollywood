@@ -18,13 +18,13 @@ class Seatreserved
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity=seat::class, inversedBy="seatreserved")
+     * @ORM\ManyToOne(targetEntity=Seat::class, inversedBy="seatreserved")
      * @ORM\JoinColumn(nullable=false)
      */
     private $seat_id;
 
     /**
-     * @ORM\ManyToOne(targetEntity=reservation::class, inversedBy="seatreserveds")
+     * @ORM\ManyToOne(targetEntity=Reservation::class, inversedBy="seatreserveds")
      * @ORM\JoinColumn(nullable=false)
      */
     private $reservation_id;
