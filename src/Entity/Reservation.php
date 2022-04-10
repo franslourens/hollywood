@@ -232,6 +232,7 @@ class Reservation
         $data[$key]["movie"] = $screening->getMovieId()->__toString();
         $data[$key]["cinema"] = $screening->__toString();
         $data[$key]["reference"] = $reservation->getCode();
+        $data[$key]["cancel"] = $screening->can_cancel();
         $data[$key]["seats"] = [];
 
         foreach ($reservation->getSeatreserveds() as $seatReserved) {

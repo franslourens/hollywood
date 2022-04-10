@@ -154,7 +154,18 @@ class Screening
     }
 
     public function can_cancel() {
+
+      $pastDate = new \DateTime();
+      $tosub = new \DateInterval('PT4H');
+      $pastDate->sub($tosub);
+
       $firstDate = $this->getStart();
+
+      //check if screening date has already passed
+      if ($firstDate < $pastDate) {
+          return false;
+      }
+
       $secondDate = new \DateTime("now");
 
       $diff = $firstDate->diff($secondDate);
