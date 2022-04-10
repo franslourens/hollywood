@@ -9,9 +9,17 @@ class ScreeningTest extends TestCase
 {
     public function cancellations()
     {
+         $futureDate = new \DateTime();
+         $tosub = new \DateInterval('PT2H');
+         $futureDate->sub($tosub);
+
+         $pastDate = new \DateTime();
+         $tosub = new \DateInterval('PT1H');
+         $pastDate->sub($tosub);
+
          return array(
-             "Scenario: Failed" => array(new \DateTime("2022-04-10 10:00:00"), false),
-             "Scenario: Success" => array(new \DateTime("2022-04-10 15:00:00"), true),
+             "Scenario: Failed" => array($pastDate, false),
+             "Scenario: Success" => array($futureDate, true),
          );
      }
 
