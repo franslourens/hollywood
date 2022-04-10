@@ -153,6 +153,22 @@ class Screening
         return $this;
     }
 
+    public function can_cancel() {
+      $firstDate = $this->getStart();
+      $secondDate = new \DateTime("now");
+
+      $diff = $firstDate->diff($secondDate);
+      $diffHours = $diff->h;
+
+      $diffInHours = $diffHours + ($diff->days * 24);
+
+      if($diffInHours >= 2) {
+        return true;
+      }
+
+      return false;
+    }
+
     public function __toString() {
         return ucwords($this->auditorium_id) . " @ " . $this->getStart()->format("Y-m-d H:i:s");
     }
