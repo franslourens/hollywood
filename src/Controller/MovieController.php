@@ -58,7 +58,7 @@ class MovieController extends AbstractController
        $reservation->setActive(true);
        $reservation->setUserPaidId($this->getUser()->getId());
 
-       $reservation_type = $doctrine->getRepository(ReservationType::class)->find(2);
+       $reservation_type = $doctrine->getRepository(ReservationType::class)->findOneBy(["reservation_type" => "Online"]);
        $reservation->setReservationTypeId($reservation_type);
 
        $screening->addReservation($reservation);
